@@ -18,13 +18,16 @@ class DB_CONNECT
   function connect()
   {
     // import db connection variables
-    require_once __DIR__ . '/config.php';
+    $host = "localhost";
+    $username = "root";
+    $pass = "Loop1";
+    $db_name = "loop1";
 
     // connecting to mysql db
-    $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
+    $con = mysql_connect($host, $username, $pass) or die(mysql_error());
 
     // selecting db
-    $db = mysql_select_db(DB_NAME) or die(mysql_error());
+    $db = mysql_select_db($db_name) or die(mysql_error());
 
     // return connection cursor
     return $con;
